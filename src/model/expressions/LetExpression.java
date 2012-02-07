@@ -22,10 +22,11 @@ public class LetExpression extends ParenExpression {
 	@Override
 	public RGBColor evaluate(Map<String, RGBColor> myMap) {
 		// TODO Auto-generated method stub
-		RGBColor myTempColor = new RGBColor(myList.get(1).evaluate(myMap));
-		myMap.put(((VariableExp) myList.get(0)).getMyString(), myTempColor); 
+		Map<String, RGBColor> myMapCopy = new HashMap<String,RGBColor>(myMap);
 		
-		Map<String, RGBColor> myMapCopy = new HashMap<String,RGBColor>(myMap); 
+		RGBColor myTempColor = new RGBColor(myList.get(1).evaluate(myMapCopy));
+		
+		myMapCopy.put(((VariableExp) myList.get(0)).getMyString(), myTempColor); 
 		return (getOperands().get(2).evaluate(myMapCopy));
 	}
 

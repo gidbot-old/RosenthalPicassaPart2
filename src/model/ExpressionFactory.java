@@ -14,17 +14,31 @@ public class ExpressionFactory {
 	public Expression createExpression(String exp, ArrayList<Expression> myList){
 		if(exp.equals("plus"))
 			return new PlusExp(myList); 
+		if(exp.equals("+"))
+			return new PlusExp(myList); 
 		if(exp.equals("minus"))
+			return new SubtractExp(myList); 
+		if(exp.equals("-"))
 			return new SubtractExp(myList); 
 		if(exp.equals("mul"))
 			return new MullExp(myList); 
+		if(exp.equals("*"))
+			return new MullExp(myList); 
 		if(exp.equals("div"))
+			return new DivideExp(myList);
+		if(exp.equals("/"))
 			return new DivideExp(myList);
 		if(exp.equals("mod"))
 			return new DivideExp(myList);
+		if(exp.equals("%"))
+			return new DivideExp(myList);
 		if(exp.equals("exp"))
 			return new ExponentExp(myList);
+		if(exp.equals("^"))
+			return new ExponentExp(myList);
 		if(exp.equals("neg"))
+			return new NegExp(myList);
+		if(exp.equals("!"))
 			return new NegExp(myList);
 		if(exp.equals("color"))
 			return new ColorExp(myList);
@@ -60,6 +74,18 @@ public class ExpressionFactory {
 			return new PerlinColorExp(myList);
 		if(exp.equals("perlinbw"))
 			return new GreyPerlinExp(myList);
+		if(exp.equals("sum"))
+			return new SumExp(myList); 
+		if(exp.equals("product"))
+			return new ProductExp(myList); 
+		if(exp.equals("average"))
+			return new AverageExp(myList);
+		if(exp.equals("min"))
+			return new MinExp(myList);
+		if(exp.equals("max"))
+			return new MaxExp(myList);
+		if(exp.equals("if"))
+			return new IfExp(myList);
 		 
 		
 		else return null; 

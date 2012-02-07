@@ -35,7 +35,7 @@ public class Parser
     // expression begins with a left parent followed by the command name, 
     // which is a sequence of alphabetic characters
     private static final Pattern EXPRESSION_BEGIN_REGEX =
-        Pattern.compile("\\(([a-z]+)");
+        Pattern.compile("\\(([a-z+-/^%*!]+)");
     // REGEX for the x,y variables
     private static final Pattern VARIABLE_REGEX =
             Pattern.compile("[a-zA-Z]+");
