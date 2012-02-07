@@ -1,32 +1,7 @@
 package model;
 
 import java.util.*;
-
-import model.expressions.AbsExp;
-import model.expressions.AtanExp;
-import model.expressions.CeilExp;
-import model.expressions.ClampExp;
-import model.expressions.ColorExp;
-import model.expressions.CosExp;
-import model.expressions.DivideExp;
-import model.expressions.ExponentExp;
-import model.expressions.Expression;
-import model.expressions.FloorExp;
-import model.expressions.FromLumChromExp;
-import model.expressions.GreyPerlinExp;
-import model.expressions.LetExpression;
-import model.expressions.LogExp;
-import model.expressions.PerlinColorExp;
-import model.expressions.ToLumChromExp;
-import model.expressions.MullExp;
-import model.expressions.NegExp;
-import model.expressions.PlusExp;
-import model.expressions.RandomExp;
-import model.expressions.SinExp;
-import model.expressions.SubtractExp;
-import model.expressions.TanExp;
-import model.expressions.WrapExp;
-
+import model.expressions.*; 
 
 public class ExpressionFactory {
 

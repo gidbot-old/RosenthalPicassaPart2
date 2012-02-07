@@ -5,7 +5,7 @@ import java.util.*;
 
 import model.Parser;
 import model.RGBColor;
-import model.util.ColorCombinations;
+
 import model.util.PerlinNoise;
 
 public class GreyPerlinExp extends ParenExpression{

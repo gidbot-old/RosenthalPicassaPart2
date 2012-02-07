@@ -80,9 +80,9 @@ public class Parser
     private ExpressionType getExpressionType ()
     {
         skipWhiteSpace();
-        if (isNumber())          return ExpressionType.NUMBER;
-        if (isParenExpression()) return ExpressionType.PAREN_EXPRESSION;
-        if (isVariable())		 return ExpressionType.VARIABLE; 
+        if (matchesPattern (DOUBLE_REGEX))           return ExpressionType.NUMBER;
+        if (matchesPattern (EXPRESSION_BEGIN_REGEX)) return ExpressionType.PAREN_EXPRESSION;
+        if (matchesPattern (VARIABLE_REGEX))		 return ExpressionType.VARIABLE; 
         else                     throw new ParserException("Unexpected Character " + currentCharacter());
     }
 
@@ -104,27 +104,13 @@ public class Parser
     }
 
 
-    private boolean isNumber ()
+    private boolean matchesPattern (Pattern regex)
     {
         Matcher doubleMatcher =
-            DOUBLE_REGEX.matcher(myInput.substring(myCurrentPosition));
+            regex.matcher(myInput.substring(myCurrentPosition));
         return doubleMatcher.lookingAt();
     }
     
-    private boolean isVariable ()
-    {
-    	Matcher doubleMatcher =
-    		VARIABLE_REGEX.matcher(myInput.substring(myCurrentPosition));
-    	return doubleMatcher.lookingAt();
-    }
-
-
-    private boolean isParenExpression ()
-    {
-        Matcher expMatcher =
-            EXPRESSION_BEGIN_REGEX.matcher(myInput.substring(myCurrentPosition));
-        return expMatcher.lookingAt();
-    }
 
 
     private Expression parseNumber ()
