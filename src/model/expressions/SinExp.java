@@ -1,6 +1,7 @@
 package model.expressions;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import model.RGBColor;
 
@@ -15,15 +16,15 @@ public class SinExp extends ParenExpression{
 	}
 
 	@Override
-	public RGBColor evaluate(double x, double y) {
+	public RGBColor evaluate(Map<String, RGBColor> myMap) {
 		// TODO Auto-generated method stub
-		return sin(getOperands().get(0).evaluate(x, y));
+		return sin(getOperands().get(0).evaluate(myMap));
 	}
 	
 	 public static RGBColor sin (RGBColor toSine){
-		 return new RGBColor(Math.sin(toSine.getRed()), 
-				  			 Math.sin(toSine.getGreen()),
-				  			 Math.sin(toSine.getBlue())); 
+		 return new RGBColor(Math.sin(Math.toRadians(toSine.getRed())),  
+				 			 Math.sin(Math.toRadians(toSine.getGreen())),
+				 			 Math.sin(Math.toRadians(toSine.getBlue()))); 
 		 
 	 }
 

@@ -1,6 +1,7 @@
 package model.expressions;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import model.Parser;
 import model.RGBColor;
@@ -16,9 +17,9 @@ public class ModExp extends ParenExpression{
 		// TODO Auto-generated constructor stub
 	}
 	@Override
-	public RGBColor evaluate(double x, double y) {
+	public RGBColor evaluate(Map<String, RGBColor> myMap) {
 		// TODO Auto-generated method stub
-		return modulus(getOperands().get(0).evaluate(x, y), getOperands().get(1).evaluate(x, y));
+		return modulus(getOperands().get(0).evaluate(myMap), getOperands().get(1).evaluate(myMap));
 	}
 	
 	public static RGBColor modulus (RGBColor left, RGBColor right)

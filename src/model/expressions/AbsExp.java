@@ -1,6 +1,7 @@
 package model.expressions;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import model.RGBColor;
 import model.util.ColorCombinations;
@@ -16,9 +17,9 @@ public class AbsExp extends ParenExpression {
 	}
 
 	@Override
-	public RGBColor evaluate(double x, double y) {
+	public RGBColor evaluate(Map<String, RGBColor> myMap) {
 		// TODO Auto-generated method stub
-		return absolute(getOperands().get(0).evaluate(x, y));
+		return absolute(getOperands().get(0).evaluate(myMap));
 	}
 	
 	 public static RGBColor absolute (RGBColor toAbsolute){

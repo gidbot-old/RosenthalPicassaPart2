@@ -1,24 +1,32 @@
 package model.expressions;
 
+import java.util.Map;
+
+import model.ParserException;
 import model.RGBColor;
 
 public class VariableExp extends Expression{
 
-	public String myCommand; 
+	private String myString; 
 	public static int numOfOperands = 1;
 	
-	public VariableExp (String command){
-		myCommand = command; 
+	public VariableExp (String toSet){
+		myString = toSet; 
 	}
 	
-	@Override
-	public RGBColor evaluate(double x, double y) {
+	public String getMyString(){
+		return myString; 
+	}
+	
+	public RGBColor evaluate(Map<String, RGBColor> myMap) {
 		// TODO Auto-generated method stub
-		if (myCommand.equals("x"))
-    		return new RGBColor(x);
-        else if (myCommand.equals("y"))
-    		return new RGBColor(y);
-		return null; 
+		
+    	if (myMap.containsKey(myString)){
+    		return myMap.get(myString); 
+    	}
+    	else {
+    		throw new ParserException("Unexpected variable " + myString); }
+                
 
 	}
 

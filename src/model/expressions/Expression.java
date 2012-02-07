@@ -2,17 +2,19 @@ package model.expressions;
 
 
 
+import java.util.Map;
+
 import model.RGBColor;
 
 public abstract class Expression {
 	
 	
-
+	public String myString; 
 	public Expression (){
-		
+		 
 	}
 	
-	public abstract RGBColor evaluate (double x, double y); 	
+	public abstract RGBColor evaluate (Map<String, RGBColor> myMap);
 	
 	
 	

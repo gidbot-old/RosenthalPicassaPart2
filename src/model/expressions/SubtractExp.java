@@ -1,6 +1,7 @@
 package model.expressions;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import model.Parser;
 import model.RGBColor;
@@ -15,8 +16,9 @@ public class SubtractExp extends ParenExpression{
 		super(myList); 
 	}
 	@Override
-	public RGBColor evaluate(double x, double y) {
-		return subtract(getOperands().get(0).evaluate(x, y), getOperands().get(1).evaluate(x, y));	}
+	public RGBColor evaluate(Map<String, RGBColor> myMap) {
+		return subtract(getOperands().get(0).evaluate(myMap), getOperands().get(1).evaluate(myMap));	
+		}
 	
 	public static RGBColor subtract (RGBColor left, RGBColor right)
     {

@@ -38,7 +38,8 @@ public class Parser
         Pattern.compile("\\(([a-z]+)");
     // REGEX for the x,y variables
     private static final Pattern VARIABLE_REGEX =
-            Pattern.compile("[xy]");
+            Pattern.compile("[a-zA-Z]+");
+
     
     
     ExpressionFactory myExpressionFactory = new ExpressionFactory();
@@ -97,7 +98,7 @@ public class Parser
             case VARIABLE:
             	return parseVariable(); 
             default:
-                throw new ParserException("Unexpected expression type " +
+            	throw new ParserException("Unexpected expression type " +
                                           getExpressionType().toString());
         }
     }
@@ -148,23 +149,19 @@ public class Parser
         myCurrentPosition = variableMatcher.end();
         // this represents the color gray of the given intensity
         
-        if (variableMatch.equals("x"))
-        		return new VariableExp("x");
-        else
-    		return new VariableExp
-    				("y");
-    	
+        return new VariableExp(variableMatch); 
+        		
     	
     }
     
     
+    
     private Expression parseParenExpression ()
     {
-        Matcher expMatcher = EXPRESSION_BEGIN_REGEX.matcher(myInput);
+        Matcher expMatcher = EXPRESSION_BEGIN_REGEX.matcher(myInput.toLowerCase());
         expMatcher.find(myCurrentPosition);
        
         String commandName = expMatcher.group(1);
-        commandName = commandName.toLowerCase(); 
         		
         myCurrentPosition = expMatcher.end();
    

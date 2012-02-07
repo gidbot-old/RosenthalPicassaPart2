@@ -7,13 +7,12 @@ import model.Parser;
 import model.RGBColor;
 import model.util.ColorCombinations;
 
-public class PlusExp extends ParenExpression{
+public class ClampExp extends ParenExpression{
 
-	
 	public static String myCommand = "plus";
 	public static int numOfOperands = 2; 
 	
-	public PlusExp(ArrayList<Expression> myList) { 
+	public ClampExp(ArrayList<Expression> myList) { 
 		super(myList); 
 		// TODO Auto-generated constructor stub
 	}
@@ -27,19 +26,15 @@ public class PlusExp extends ParenExpression{
 	public RGBColor evaluate(Map<String, RGBColor> myMap) {
 		// TODO Auto-generated method stub
 		
-		return this.add(getOperands().get(0).evaluate(myMap), getOperands().get(1).evaluate(myMap));
+		return this.clamp(getOperands().get(0).evaluate(myMap));
 	}
 	
-	private RGBColor add (RGBColor left, RGBColor right)
+	private RGBColor clamp (RGBColor toClamp)
     {
-        return new RGBColor(left.getRed() + right.getRed(), 
-                            left.getGreen() + right.getGreen(),
-                            left.getBlue() + right.getBlue());
+        toClamp.clamp();
+        return toClamp; 
     }
 
-
-
-	
 
 	
 

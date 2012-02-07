@@ -1,9 +1,11 @@
 package model;
 
 import java.awt.Dimension;
+import java.util.HashMap;
+import java.util.Map;
 
 import model.expressions.Expression;
-
+import java.*; 
 
 /**
  * Evaluate an expression for each pixel in a image.
@@ -25,14 +27,20 @@ public class Model
         // create expression to evaluate just once
         Expression toEval = new Parser().makeExpression(input);
         // evaluate at each pixel
+        
+        HashMap<String, RGBColor> myMap = new HashMap<String, RGBColor>(); 
         for (int imageY = 0; imageY < size.height; imageY++)
         {
             double evalY = imageToDomainScale(imageY, size.height);
+            myMap.put(("y"), new RGBColor(evalY)); 
+            
             for (int imageX = 0; imageX < size.width; imageX++)
             {
                 double evalX = imageToDomainScale(imageX, size.width);
+                
+                myMap.put("x", new RGBColor(evalX));
                 result.setColor(imageX, imageY,
-                                toEval.evaluate(evalX, evalY).toJavaColor());
+                                toEval.evaluate(myMap).toJavaColor());
             }
         }
         return result;

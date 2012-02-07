@@ -1,6 +1,7 @@
 package model.expressions;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import model.RGBColor;
 
@@ -15,9 +16,9 @@ public class CeilExp extends ParenExpression{
 	}
 
 	@Override
-	public RGBColor evaluate(double x, double y) {
+	public RGBColor evaluate(Map<String, RGBColor> myMap) {
 		// TODO Auto-generated method stub
-		return ceiling(getOperands().get(0).evaluate(x, y));
+		return ceiling(getOperands().get(0).evaluate(myMap));
 	}
 	
 	 private RGBColor ceiling (RGBColor toCeil){

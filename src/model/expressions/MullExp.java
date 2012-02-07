@@ -17,9 +17,10 @@ public class MullExp extends ParenExpression {
 		// TODO Auto-generated constructor stub
 	}
 	@Override
-	public RGBColor evaluate(double x, double y) {
+	public RGBColor evaluate(Map<String, RGBColor> myMap) {
 		// TODO Auto-generated method stub
-		return multiply(getOperands().get(0).evaluate(x, y), getOperands().get(1).evaluate(x, y));	}
+		return multiply(getOperands().get(0).evaluate(myMap), getOperands().get(1).evaluate(myMap));	
+		}
 
 	
 	public static RGBColor multiply (RGBColor left, RGBColor right)

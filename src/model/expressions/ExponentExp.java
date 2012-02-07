@@ -1,6 +1,7 @@
 package model.expressions;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import model.Parser;
 import model.RGBColor;
@@ -17,9 +18,9 @@ public class ExponentExp extends ParenExpression{
 	}
 
 	@Override
-	public RGBColor evaluate(double x, double y) {
+	public RGBColor evaluate(Map<String, RGBColor> myMap) {
 		// TODO Auto-generated method stub
-		return exponent(getOperands().get(0).evaluate(x, y), getOperands().get(1).evaluate(x, y));
+		return exponent(getOperands().get(0).evaluate(myMap), getOperands().get(1).evaluate(myMap));
 	}
 	
 	public static RGBColor exponent (RGBColor left, RGBColor right)

@@ -9,9 +9,11 @@ import model.RGBColor;
 public abstract class ParenExpression extends Expression {
 
 	
-	private List<Expression> myList = new ArrayList<Expression>(); 
+	protected List<Expression> myList = new ArrayList<Expression>(); 
 	
-	protected ParenExpression(ArrayList<Expression> list) {
+	
+	public ParenExpression(ArrayList<Expression> list) {
+		super(); 
 		myList = list;
 	}
 
