@@ -26,7 +26,7 @@ public class Frame extends JFrame
 {
     // default version number
     private static final long serialVersionUID = 1L;
-    private static final int ANIMATION_DELAY = 500;    // in milli-seconds
+    private static final int ANIMATION_DELAY = 100;    // in milli-seconds
 
     // state
     private Model myModel;

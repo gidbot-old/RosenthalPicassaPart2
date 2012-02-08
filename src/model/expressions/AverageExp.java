@@ -28,10 +28,10 @@ public class AverageExp extends ParenExpression{
 	public RGBColor evaluate(Map<String, RGBColor> myMap) {
 		// TODO Auto-generated method stub
 		
-		mySize = myList.size(); 
+		mySize = getOperands().size(); 
 		RGBColor myAverage = new RGBColor(getOperands().get(0).evaluate(myMap));
-		for (Expression currentColor: myList){
-			myAverage = average(myAverage, currentColor.evaluate(myMap)); 
+		for (int i = 1; i < mySize; i++){
+			myAverage = average(myAverage, getOperands().get(i).evaluate(myMap)); 
 		}
 		
 		return myAverage; 

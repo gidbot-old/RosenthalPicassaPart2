@@ -28,8 +28,8 @@ public class SumExp extends ParenExpression{
 		// TODO Auto-generated method stub
 		
 		RGBColor mySum = new RGBColor(getOperands().get(0).evaluate(myMap));
-		for (Expression currentColor: myList){
-			mySum = add(mySum, currentColor.evaluate(myMap)); 
+		for (int i = 1; i < getOperands().size(); i++){
+			mySum = add(mySum, getOperands().get(i).evaluate(myMap)); 
 		}
 		
 		return mySum; 

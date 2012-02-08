@@ -15,6 +15,10 @@ public class SubtractExp extends ParenExpression{
 	public SubtractExp(ArrayList<Expression> myList) { 
 		super(myList); 
 	}
+	
+	public String getCommand(){
+		return myCommand; 
+	}
 	@Override
 	public RGBColor evaluate(Map<String, RGBColor> myMap) {
 		return subtract(getOperands().get(0).evaluate(myMap), getOperands().get(1).evaluate(myMap));	

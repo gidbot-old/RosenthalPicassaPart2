@@ -28,8 +28,8 @@ public class ProductExp extends ParenExpression{
 		// TODO Auto-generated method stub
 		
 		RGBColor myProduct = new RGBColor(getOperands().get(0).evaluate(myMap));
-		for (Expression currentColor: myList){
-			myProduct = multiply(myProduct, currentColor.evaluate(myMap)); 
+		for (int i = 1; i < getOperands().size(); i++){
+			myProduct = multiply(myProduct, getOperands().get(i).evaluate(myMap)); 
 		}
 		
 		return myProduct; 

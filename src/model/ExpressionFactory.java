@@ -12,12 +12,18 @@ public class ExpressionFactory {
 
 	
 	public Expression createExpression(String exp, ArrayList<Expression> myList){
-		if(exp.equals("plus"))
-			return new PlusExp(myList); 
+		PlusExp myPlus = new PlusExp(myList); 
+		if(exp.equals(myPlus.getCommand()))
+			return myPlus; 
+		
 		if(exp.equals("+"))
 			return new PlusExp(myList); 
-		if(exp.equals("minus"))
-			return new SubtractExp(myList); 
+		
+		SubtractExp mySubtract = new SubtractExp(myList); 
+		if(exp.equals(mySubtract.getCommand()))
+			return mySubtract; 
+		
+		
 		if(exp.equals("-"))
 			return new SubtractExp(myList); 
 		if(exp.equals("mul"))
@@ -29,7 +35,7 @@ public class ExpressionFactory {
 		if(exp.equals("/"))
 			return new DivideExp(myList);
 		if(exp.equals("mod"))
-			return new DivideExp(myList);
+			return new ModExp(myList);
 		if(exp.equals("%"))
 			return new DivideExp(myList);
 		if(exp.equals("exp"))
